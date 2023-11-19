@@ -1,0 +1,13 @@
+-- +migrate Up
+CREATE TABLE IF NOT EXISTS users(
+  id UUID NOT NULL,
+  name VARCHAR(255) NOT NULL,
+  email VARCHAR(255) NOT NULL UNIQUE,
+  phone_number VARCHAR(20),
+  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  CONSTRAINT user_pk PRIMARY KEY (id)
+);
+
+-- +migrate Down
+DROP TABLE IF EXISTS users;

@@ -1,0 +1,16 @@
+-- +migrate Up
+CREATE TABLE IF NOT EXISTS orders(
+  id UUID NOT NULL,
+  user_id UUID NOT NULL,
+  pair VARCHAR(50) NOT NULL,
+  amount DECIMAL(18, 8) NOT NULL,
+  direction VARCHAR(4) NOT NULL,
+  type VARCHAR(10) NOT NULL,
+  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  CONSTRAINT order_pk PRIMARY KEY (id),
+  CONSTRAINT fk_user_id FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE
+);
+
+-- +migrate Down
+DROP TABLE IF EXISTS orders;
