@@ -44,7 +44,7 @@ func NewTestDB() (*gorm.DB, error) {
 		Port:     os.Getenv("DB_PORT"),
 		User:     os.Getenv("DB_USER"),
 		Password: os.Getenv("DB_PASSWORD"),
-		DBName:   os.Getenv("DB_NAME"), // Adiciona um sufixo para o banco de dados de teste, caso queira
+		DBName:   os.Getenv("DB_NAME") + "_test", // Adiciona um sufixo para o banco de dados de teste, caso queira
 		SSLMode:  os.Getenv("DB_SSL_MODE"),
 	}
 
