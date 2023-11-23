@@ -68,7 +68,6 @@ func (uc *UserController) Update(c echo.Context) error {
 
 func (uc *UserController) Delete(c echo.Context) error {
 	userID := c.Param("id")
-
 	err := uc.UserService.DeleteUser(userID)
 	if err != nil {
 		// Verifica se o erro é relacionado à ausência do usuário

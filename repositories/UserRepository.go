@@ -51,7 +51,7 @@ func (r *userRepository) UpdateUser(updatedUser models.User) (*models.User, erro
 func (r *userRepository) DeleteUser(userID string) error {
 	err := r.db.Delete(&models.User{}, "id = ?", userID).Error
 	if err != nil {
-		fmt.Printf("Erro ao deletar usuário com ID %s: %s\n", userID, err)
+		fmt.Println("Erro ao deletar usuário com ID %s: %s\n", userID, err)
 	}
 	return err
 }
