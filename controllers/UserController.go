@@ -3,7 +3,6 @@ package controllers
 import (
 	"crud-go-echo-gorm/models"
 	"crud-go-echo-gorm/services"
-	"fmt"
 	"net/http"
 	"strings"
 
@@ -69,11 +68,6 @@ func (uc *UserController) Update(c echo.Context) error {
 
 func (uc *UserController) Delete(c echo.Context) error {
 	userID := c.Param("id")
-	fmt.Println("-------------------------------------------")
-	fmt.Println("-------------------------------------------")
-	fmt.Println("Chegou no delete ID: ", userID)
-	fmt.Println("-------------------------------------------")
-	fmt.Println("-------------------------------------------")
 	err := uc.UserService.DeleteUser(userID)
 	if err != nil {
 		// Verifica se o erro é relacionado à ausência do usuário
